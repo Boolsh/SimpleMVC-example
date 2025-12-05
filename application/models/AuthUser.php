@@ -17,7 +17,7 @@ class AuthUser extends User
 	$siteAuthData = $User->getAuthData($login);	
         if (isset($siteAuthData['pass'])) {
 	    $pass .= $siteAuthData['salt'];
-	    $passForCheck = password_verify($pass, $siteAuthData['pass']);
+	    $passForCheck = $siteAuthData['pass'];
 	    if ($passForCheck) {
 		$result = true;
 	    }
