@@ -23,7 +23,13 @@ $User = Config::getObject('core.user.class');
     <input type="text" name="pass" placeholder="новый пароль" value=""><br>
     <h5>Введите e-mail</h5>
     <input type="text" name="email"  placeholder="email" value="<?= $viewAdminusers->email ?>"><br>
-    
+    <h5>Выберите роль</h5>
+    </pre>
+        <select name="role">
+            <option value="auth_user"<?php if($roleUser == 'auth_user') echo " selected"?>>Авторизованный пользователь</option>
+            <option value="admin"<?php if($roleUser == 'admin') echo " selected"?>>Админ</option>
+        </select>
+    <pre>
     <input type="hidden" name="id" value="<?= $_GET['id']; ?>">
     <input type="submit" name="saveChanges" value="Сохранить">
     <input type="submit" name="cancel" value="Назад">

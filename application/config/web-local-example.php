@@ -7,9 +7,9 @@
 $config = [
     'core' => [ // подмассив используемый самим ядром фреймворка
         'db' => [ // подмассив конфигурации БД
-            'dns' => 'mysql:host=localhost;dbname=smvcbase',
-            'username' => 'root',
-            'password' => '1234'
+            'dns' => 'mysql:host=localhost;dbname=mvcDB',
+            'username' => 'dura',
+            'password' => '123qwerosso'
         ]
     ]    
 ];

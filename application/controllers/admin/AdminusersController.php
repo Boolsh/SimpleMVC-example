@@ -72,6 +72,8 @@ class AdminusersController extends \ItForFree\SimpleMVC\MVC\Controller
             
             if (!empty($_POST['saveChanges'] )) {
                 $Adminusers = new UserModel();
+                if($_POST['pass'] == "")
+                    $_POST['pass'] = $Adminusers->getById($_POST['id'])->pass;
                 $newAdminusers = $Adminusers->loadFromArray($_POST);
                 $newAdminusers->update();
                 $this->redirect($Url::link("admin/adminusers/index&id=$id"));
@@ -82,11 +84,13 @@ class AdminusersController extends \ItForFree\SimpleMVC\MVC\Controller
         } else {
             $Adminusers = new UserModel();
             $viewAdminusers = $Adminusers->getById($id);
+            $roleUser = $Adminusers->getRole($viewAdminusers->login);
             
             $editAdminusersTitle = "Редактирование данных пользователя";
             
             $this->view->addVar('viewAdminusers', $viewAdminusers);
             $this->view->addVar('editAdminusersTitle', $editAdminusersTitle);
+            $this->view->addVar('roleUser', $roleUser);
             
             $this->view->render('user/edit.php');   
         }
