@@ -9,7 +9,7 @@ $config = [
         'db' => [ // подмассив конфигурации БД
             'dns' => 'mysql:host=localhost;dbname=mvcDB',
             'username' => 'dura',
-            'password' => '123qwerosso'
+            'password' => ''
         ]
     ]    
 ];
